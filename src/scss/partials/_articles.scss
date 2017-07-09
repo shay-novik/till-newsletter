@@ -1,16 +1,23 @@
-.article__row-container {
+.article__row-container article,
+.article__column-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 1em;
 }
 
 .article__image-container {
+  flex: 1;
   padding-bottom: 1em;
 }
 
 .article__image-container img {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.article__content-container {
+  flex: 2;
 }
 
 .article__title {
@@ -21,17 +28,19 @@
   padding: 0 1.2em 1em 1.2em;
 }
 
-// Make image float to right when on larger screens
-@include min-breakpoint($medium-breakpoint) {
-  .article__row-container {
-    display: flex;
+// Put the image and the content in the same row
+@include min-breakpoint($large-breakpoint) {
+  .article__row-container article {
     flex-direction: row-reverse;
+  }
+  .article__column-container {
+    flex-direction: row;
   }
 }
 
 // Add padding to the image container when above xsmall breakpoint
 @include min-breakpoint($xsmall-breakpoint + 1) {
   .article__image-container {
-    padding: 1em;
+    padding: 0.5em;
   }
 }

@@ -1,0 +1,19 @@
+body {
+  background-color: $steel-blue;
+}
+
+.page-wrapper>:nth-child(4n + 1) {
+  background-color: $jungle-green;
+}
+
+.page-wrapper>:nth-child(4n + 2) {
+  background-color: $steel-blue;
+}
+
+.page-wrapper>:nth-child(4n + 3) {
+  background-color: $valencia;
+}
+
+.page-wrapper>:nth-child(4n + 4) {
+  background-color: $biscay;
+}

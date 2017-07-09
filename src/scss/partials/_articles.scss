@@ -8,6 +8,8 @@
 }
 
 .article__image-container {
+  display: flex;
+  justify-content: center;
   flex: 1;
   padding-bottom: 1em;
 }
@@ -32,9 +34,13 @@
 @include min-breakpoint($large-breakpoint) {
   .article__row-container article {
     flex-direction: row-reverse;
+    text-align: right;
   }
   .article__column-container {
     flex-direction: row;
+  }
+  .article__paragraph {
+    padding: 0;
   }
 }
 

@@ -20,3 +20,11 @@ h2 {
 p {
   color: $cruise;
 }
+
+a {
+  color: $silver;
+}
+
+a::visited {
+  color: $cruise;
+}

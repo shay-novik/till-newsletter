@@ -14,10 +14,12 @@
 }
 
 .header__img {
-  margin: 2em;
+  margin: 0.5em;
 }
 
 .header__logo {
+  display: flex;
+  flex-direction: row;
   padding-top: 0.5em;
 }
 
@@ -29,4 +31,10 @@
   max-width: $large-breakpoint;
   flex-wrap: nowrap;
   padding: 0.5em 2em;
+}
+
+@include min-breakpoint($large-breakpoint) {
+  .header__img {
+    margin: 2em;
+  }
 }

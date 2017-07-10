@@ -1,0 +1,52 @@
+// Single article layout
+.single-article__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.single-article__figure {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.single-article__image {
+  @include box-shadow();
+  display: block;
+}
+
+.single-article__content {
+  flex: 2;
+  padding: 1em;
+}
+
+.single-article__title {
+  margin-bottom: 0.5em;
+}
+
+.single-article__paragraph {
+  margin-bottom: 2em;
+}
+
+// Multi article layout
+// Expand the column layout into a row layout when screen is large enough
+@include min-breakpoint($large-breakpoint) {
+  .single-article__container {
+    align-items: flex-start;
+    flex-direction: row;
+    text-align: right;
+  }
+  .single-article__content {
+    padding: 0;
+    margin-right: 1em;
+  }
+}
+
+// Add padding to the image container when above xsmall breakpoint
+@include min-breakpoint($xsmall-breakpoint + 1) {
+  .single-article {
+    padding: 2em;
+  }
+}

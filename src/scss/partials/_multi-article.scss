@@ -1,5 +1,4 @@
-// Single article layout
-.article__container,
+// Multi article layout
 .multi-article__container {
   display: flex;
   flex-direction: column;
@@ -7,43 +6,27 @@
   text-align: center;
 }
 
-.article__figure {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-}
-
-.article__image {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.article__content,
 .multi-article__content {
   flex: 2;
   padding: 1em;
 }
 
-.article__title,
+.multi-article__image {
+  @include box-shadow();
+  display: block;
+}
+
 .multi-article__title {
   margin-bottom: 0.5em;
 }
 
-.article__paragraph {
+.multi-article__paragraph {
   margin-bottom: 2em;
 }
 
 // Multi article layout
 // Expand the column layout into a row layout when screen is large enough
 @include min-breakpoint($large-breakpoint) {
-  .article__container {
-    align-items: flex-start;
-    flex-direction: row;
-    text-align: right;
-  }
-  .article__content {
-    padding: 0;
-    margin-right: 1em;
-  }
   .multi-article {
     display: flex;
     flex-direction: row;
@@ -57,7 +40,7 @@
   .multi-article__content {
     flex: 2;
     border: 3px solid $silver;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    @include box-shadow();
     border-top: 0;
     border-radius: 0 0 2em 2em;
     padding: 1em;
@@ -75,8 +58,7 @@
 }
 
 // Add padding to the image container when above xsmall breakpoint
-@include min-breakpoint($xsmall-breakpoint + 1) {
-  .article,
+@include min-breakpoint($xsmall-breakpoint+1) {
   .multi-article {
     padding: 2em;
   }

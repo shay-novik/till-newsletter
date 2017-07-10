@@ -12,15 +12,15 @@ const browserSync = require('browser-sync').create();
 
 // Important folder paths
 const PATHS = {
-  'public': './public',
+  'docs': './docs',
   'src': {
     'scss': './src/scss',
     'images': './src/images'
   },
   'dist': {
-    'css': `./public/dist/css`,
-    'js': `./public/dist/js`,
-    'img': './public/dist/img'
+    'css': `./docs/dist/css`,
+    'js': `./docs/dist/js`,
+    'img': './docs/dist/img'
   }
 }
 
@@ -66,11 +66,11 @@ gulp.task('browser-sync', () => {
   browserSync.init({
     'notify': false,
     'server': {
-      'baseDir': './public'
+      'baseDir': './docs'
     }
   });
-  // Reload browser when files in public folder change
-  gulp.watch(`${PATHS.public}/**/*`).on('change', browserSync.reload);
+  // Reload browser when files in docs folder change
+  gulp.watch(`${PATHS.docs}/**/*`).on('change', browserSync.reload);
 });
 
 // Master task that bundles every other development task

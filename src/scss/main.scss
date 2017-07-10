@@ -6,7 +6,9 @@
 // Mixins
 @import './mixins/responsive-image';
 @import './mixins/media-query';
+@import './mixins/box-shadow';
 // Partials
 @import './partials/base';
 @import './partials/header';
-@import './partials/articles';
+@import './partials/single-article';
+@import './partials/multi-article';

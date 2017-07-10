@@ -34,7 +34,7 @@ gulp.task('bundle-css-dev', () => {
       .pipe(wait(500)) // Fixes file not found error on vscode
       .pipe(sass().on('error', sass.logError))
       .pipe(autoprefixer())
-      .pipe(concat('bundle.css'))
+      .pipe(concat('bundle.min.css'))
       .pipe(gulp.dest(`${PATHS.dist.css}`));
   })
 });

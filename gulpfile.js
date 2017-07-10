@@ -3,6 +3,7 @@ const gulp = require('gulp');
 const watch = require('gulp-watch');
 const wait = require('gulp-wait');
 const concat = require('gulp-concat');
+const cleancss = require('gulp-clean-css');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
@@ -24,7 +25,7 @@ const PATHS = {
 }
 
 // Compile sass, autoprefix it and concat the files into one bundle
-gulp.task('bundle-css', () => {
+gulp.task('bundle-css-dev', () => {
   // Watch files and rerun on change/add/delete
   return watch(`${PATHS.src.scss}/**/*.scss`, {
     ignoreInitial: false
@@ -36,6 +37,17 @@ gulp.task('bundle-css', () => {
       .pipe(concat('bundle.css'))
       .pipe(gulp.dest(`${PATHS.dist.css}`));
   })
+});
+
+// Compile sass, prefix, concat and minify it
+gulp.task('bundle-css-prod', () => {
+
+  return gulp.src(`${PATHS.src.scss}/main.scss`)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(concat('bundle.min.css'))
+    .pipe(cleancss())
+    .pipe(gulp.dest(`${PATHS.dist.css}`));
 });
 
 // Compress images
@@ -62,4 +74,7 @@ gulp.task('browser-sync', () => {
 });
 
 // Master task that bundles every other development task
-gulp.task('dev', ['bundle-css', 'browser-sync']);
+gulp.task('dev', ['bundle-css-dev', 'browser-sync']);
+
+// Master task that bundles every other production task
+gulp.task('prod', ['bundle-css-prod', 'compress-images']);

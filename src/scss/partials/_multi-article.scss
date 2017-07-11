@@ -24,6 +24,27 @@
   margin-bottom: 2em;
 }
 
+.multi-article__youtube {
+  @include box-shadow();
+  display: block;
+  margin-bottom: 1.5em;
+  width: 100%;
+  height: auto; //fallback
+  background-image: url('../img/till-products-banner.jpg');
+}
+
+.product-list {
+  padding: 1em;
+  list-style-type: circle;
+  color: $cruise;
+  .product-list__item {
+    font-size: 0.9em;
+    .product-list__item--bold {
+      font-weight: bold;
+    }
+  }
+}
+
 // Multi article layout
 // Expand the column layout into a row layout when screen is large enough
 @include min-breakpoint($large-breakpoint) {

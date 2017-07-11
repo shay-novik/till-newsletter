@@ -27,10 +27,10 @@ const PATHS = {
 // Compile sass, autoprefix it and concat the files into one bundle
 gulp.task('bundle-css-dev', () => {
   // Watch files and rerun on change/add/delete
-  return watch(`${PATHS.src.scss}/**/*.scss`, {
+  return watch(`${PATHS.src.scss}/**/*.sass`, {
     ignoreInitial: false
   }, () => {
-    gulp.src(`${PATHS.src.scss}/main.scss`)
+    gulp.src(`${PATHS.src.scss}/main.sass`)
       .pipe(wait(500)) // Fixes file not found error on vscode
       .pipe(sass().on('error', sass.logError))
       .pipe(autoprefixer())
@@ -42,7 +42,7 @@ gulp.task('bundle-css-dev', () => {
 // Compile sass, prefix, concat and minify it
 gulp.task('bundle-css-prod', () => {
 
-  return gulp.src(`${PATHS.src.scss}/main.scss`)
+  return gulp.src(`${PATHS.src.scss}/main.sass`)
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(concat('bundle.min.css'))

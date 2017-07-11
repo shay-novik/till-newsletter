@@ -36,6 +36,7 @@
 .product-list {
   list-style-type: circle;
   color: $cruise;
+  padding: 1em;
   .product-list__item {
     font-size: 0.9em;
     .product-list__item--bold {

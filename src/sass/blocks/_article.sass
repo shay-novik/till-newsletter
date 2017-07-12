@@ -1,0 +1,49 @@
+.article
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+
+  +element(logo)
+    display: block // Fix container height
+    +box-shadow
+
+  +element(content)
+    padding: 2em
+
+  +element(title)
+    font-size: 1.5em
+    color: $silver
+    margin-bottom: 1em
+    
+    &::after
+      content: ""
+      display: block
+      width: 100%
+      height: 0.2em
+      margin-top: 0.5em
+      border-radius: 1em
+      background: $silver
+
+  +element(paragraph)
+    color: $cruise
+    +modifier(link)
+      color: $silver
+      
+      &:hover
+        color: $silver
+      
+      &:visited 
+        color: $silver
+// When on
++min-breakpoint($small-breakpoint)
+  .article-container
+    +element(logo)
+      padding: 2em
+
+// When on tablet res or above
++min-breakpoint($medium-breakpoint)
+  .article
+    flex-direction: row
+    align-items: center
+    padding: 2em

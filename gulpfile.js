@@ -14,7 +14,7 @@ const browserSync = require('browser-sync').create();
 const PATHS = {
   'docs': './docs',
   'src': {
-    'scss': './src/scss',
+    'sass': './src/sass',
     'images': './src/images'
   },
   'dist': {
@@ -27,10 +27,10 @@ const PATHS = {
 // Compile sass, autoprefix it and concat the files into one bundle
 gulp.task('bundle-css-dev', () => {
   // Watch files and rerun on change/add/delete
-  return watch(`${PATHS.src.scss}/**/*.sass`, {
+  return watch(`${PATHS.src.sass}/**/*.sass`, {
     ignoreInitial: false
   }, () => {
-    gulp.src(`${PATHS.src.scss}/main.sass`)
+    gulp.src(`${PATHS.src.sass}/main.sass`)
       .pipe(wait(500)) // Fixes file not found error on vscode
       .pipe(sass().on('error', sass.logError))
       .pipe(autoprefixer())
@@ -42,7 +42,7 @@ gulp.task('bundle-css-dev', () => {
 // Compile sass, prefix, concat and minify it
 gulp.task('bundle-css-prod', () => {
 
-  return gulp.src(`${PATHS.src.scss}/main.sass`)
+  return gulp.src(`${PATHS.src.sass}/main.sass`)
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer())
     .pipe(concat('bundle.min.css'))

@@ -6,7 +6,6 @@
 
   +min-breakpoint($medium-breakpoint)
     flex-direction: row
-    align-items: center
     padding: 2em
 
   +element(image)
@@ -15,9 +14,16 @@
 
   +element(content)
     padding: 1.5em
+    
+    +min-breakpoint($small-breakpoint)
+      text-align: right
+    
+    +min-breakpoint($medium-breakpoint)
+      flex: 3
 
   +element(title)
     font-size: 1.5em
+    text-align: center
     color: $silver
     margin-bottom: 1em
     
@@ -34,6 +40,8 @@
     color: $cruise
 
 .article-container
-  +min-breakpoint($small-breakpoint)
-      +element(image)
-        padding: 2em
+    +element(image)
+      +min-breakpoint($small-breakpoint)
+        margin-top: 2em  
+      +min-breakpoint($medium-breakpoint)
+        margin-top: 0

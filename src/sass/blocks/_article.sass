@@ -4,6 +4,11 @@
   align-items: center
   text-align: center
 
+  +min-breakpoint($medium-breakpoint)
+    flex-direction: row
+    align-items: center
+    padding: 2em
+
   +element(image)
     display: block // Fix container height
     +box-shadow
@@ -28,15 +33,7 @@
   +element(paragraph)
     color: $cruise
 
-// When on
-+min-breakpoint($small-breakpoint)
-  .article-container
-    +element(image)
-      padding: 2em
-
-// When on tablet res or above
-+min-breakpoint($medium-breakpoint)
-  .article
-    flex-direction: row
-    align-items: center
-    padding: 2em
+.article-container
+  +min-breakpoint($small-breakpoint)
+      +element(image)
+        padding: 2em
